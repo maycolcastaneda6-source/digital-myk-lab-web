@@ -341,22 +341,35 @@ export const AiChatbotWidget: React.FC<AiChatbotWidgetProps> = ({
       )}
 
       {/* Floating Toggle Button */}
-      <button
-        onClick={onToggle}
-        className="pointer-events-auto relative group p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#00d2ff] via-[#8b5cf6] to-[#f43f5e] text-white shadow-[0_0_25px_rgba(0,210,255,0.5)] hover:shadow-[0_0_35px_rgba(244,63,94,0.7)] transition-all duration-300 transform hover:scale-110 cursor-pointer flex items-center justify-center"
-        aria-label={isOpen ? 'Cerrar Asistente IA' : 'Abrir Asistente IA'}
-        id="btn-toggle-chatbot"
-      >
-        {isOpen ? (
-          <X className="w-6 h-6 text-white" />
-        ) : (
-          <>
-            <Bot className="w-6 h-6 text-white" />
-            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#050814] animate-ping" />
-            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#050814]" />
-          </>
+      <div className="pointer-events-auto flex items-center gap-2.5">
+        {!isOpen && (
+          <button
+            onClick={onToggle}
+            className="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0c1424]/95 border border-[#00d2ff]/40 text-xs font-bold text-slate-200 hover:text-white shadow-[0_4px_20px_rgba(0,0,0,0.6)] backdrop-blur-md cursor-pointer group transition-all"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Asistente IA 24/7</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#00d2ff] group-hover:rotate-12 transition-transform" />
+          </button>
         )}
-      </button>
+
+        <button
+          onClick={onToggle}
+          className="relative group p-3.5 sm:p-4 rounded-full bg-gradient-to-tr from-[#00d2ff] via-[#8b5cf6] to-[#f43f5e] text-white shadow-[0_0_25px_rgba(0,210,255,0.5)] hover:shadow-[0_0_35px_rgba(244,63,94,0.7)] transition-all duration-300 transform hover:scale-110 cursor-pointer flex items-center justify-center"
+          aria-label={isOpen ? 'Cerrar Asistente IA' : 'Abrir Asistente IA'}
+          id="btn-toggle-chatbot"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6 text-white" />
+          ) : (
+            <>
+              <Bot className="w-6 h-6 text-white" />
+              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#050814] animate-ping" />
+              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-[#050814]" />
+            </>
+          )}
+        </button>
+      </div>
 
     </aside>
   );
