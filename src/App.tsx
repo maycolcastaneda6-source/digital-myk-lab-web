@@ -9,8 +9,8 @@ import { Footer } from './components/Footer';
 import { AiChatbotWidget } from './components/AiChatbotWidget';
 
 export default function App() {
-  // REQUIREMENT 3: Asistente IA starts OPEN / unfolded by default
-  const [isChatbotOpen, setIsChatbotOpen] = useState(true);
+  // Asistente IA starts collapsed by default, unfolds on click
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
